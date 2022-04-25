@@ -10,7 +10,7 @@ if (len(devices) <= 0):
 # List connected devices
 gige_devices = []
 for device in devices:
-    # Only print info on GigE devices
+    # Add GigE camera to list
     if device.GetDeviceClass() == 'BaslerGigE':
         gige_devices.append(device)
 # Check a GigE device was found
