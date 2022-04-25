@@ -1,0 +1,41 @@
+version: '3'
+
+services:
+  pylon-capture:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    image: pylon_cam
+    # networks:
+    #   pylon_cameras_net:
+    #     aliases:
+    #       - pylon_cam
+    # ports:
+    #   - "5001:5000"
+    network_mode: host
+
+
+# networks:
+  # pylon_cameras_net:
+  #   driver: bridge
+  #   ipam:
+  #     driver: default
+  #     config:
+  #       - subnet: 172.16.20.0/24
+  # pylon_cameras_net:
+  #   driver: ipvlan
+  #   driver_opts:
+  #     ipvlan_mode: l2
+  #     parent: enp4s0
+  #   ipam:
+  #     config:
+  #       - subnet: 172.16.20.0/24
+  #         ip_range: 172.16.20.0/24
+  # pylon_cameras_net:
+  #   driver: macvlan
+  #   driver_opts:
+  #     parent: enp4s0
+  #   ipam:
+  #     config:
+  #       - subnet: 172.16.20.0/24
+  #         ip_range: 172.16.20.0/24
