@@ -6,16 +6,19 @@ services:
       context: ./
       dockerfile: Dockerfile
     image: pylon_cam
-    # networks:
-    #   pylon_cameras_net:
-    #     aliases:
-    #       - pylon_cam
+    networks:
+      # pylon_cameras_net:
+      #   aliases:
+      #       - pylon_cam
+      - pylon_cameras_net
     # ports:
     #   - "5001:5000"
-    network_mode: host
 
 
-# networks:
+networks:
+  pylon_cameras_net:
+    name: host
+    external: true
   # pylon_cameras_net:
   #   driver: bridge
   #   ipam:
